@@ -45,7 +45,7 @@ jobs:
         run: pytest
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/JAltuaymi/food101-mini-project:latest .
+        run: docker build -t ghcr.io/jaltuaymi/food101-mini-project:latest .
 
       - name: Push Docker image
-        run: docker push ghcr.io/JAltuaymi/food101-mini-project:latest
+        run: docker push ghcr.io/jaltuaymi/food101-mini-project:latest
