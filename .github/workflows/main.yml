@@ -11,14 +11,21 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: read
-      packages: write  
+      packages: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -36,7 +43,6 @@ jobs:
 
       - name: Run tests
         run: pytest
-    
+
       - name: Build Docker image
         run: docker build -t food101-api .
-
