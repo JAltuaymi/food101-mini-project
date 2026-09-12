@@ -21,7 +21,7 @@ classes = [
     "caesar_salad"
 ]
 
-model = models.resnet18(pretrained=True)
+model = models.resnet18(pretrained=None)
 model.fc = nn.Sequential(
     nn.ReLU(),
     nn.Dropout(0.5),
